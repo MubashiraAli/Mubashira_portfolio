@@ -114,7 +114,7 @@ export default function Hero() {
           >
             <div>
               <p className="label enter text-brand" style={{ animationDelay: "120ms" }}>
-                {profile.location} — Available for work
+                {profile.location}
               </p>
 
               <h1 className="display-name mt-5">
