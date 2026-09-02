@@ -95,6 +95,61 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "LearnHub",
+    blurb:
+      "E-learning platform supporting course browsing, student enrollment, and progress tracking, deployed on a cloud-based architecture.",
+    points: [
+      "Developed an e-learning platform supporting course browsing, student enrollment, and progress tracking using Next.js and PostgreSQL.",
+      "Deployed on Vercel with Neon PostgreSQL, using a cloud-based architecture for reliable application and database hosting.",
+    ],
+    stack: ["Next.js", "Vercel", "Neon PostgreSQL"],
+    accent: "from-violet-400 to-fuchsia-500",
+    demo: "https://learn-hub-umber-zeta.vercel.app",
+    repo: "https://github.com/MubashiraAli/learn-hub",
+  },
+  {
+    name: "HomeVault",
+    blurb:
+      "Private household record for property, appliances, warranties and maintenance — organised room by room, with strict per-user data isolation.",
+    points: [
+      "Built a Next.js 16 App Router application on Prisma 7 and PostgreSQL, with Auth.js v5 credential sessions, bcrypt hashing and per-user data isolation enforced end to end.",
+      "Implemented property and appliance CRUD alongside warranty and maintenance tracking, with derived status and recurrence calculations driving upkeep alerts.",
+      "Hardened the data layer with Zod schemas shared across client and server, magic-byte file-upload validation, and verification scripts covering route policy, cross-user authorization, money handling and notification idempotency.",
+    ],
+    stack: [
+      "Next.js 16",
+      "TypeScript",
+      "Prisma 7",
+      "PostgreSQL",
+      "Auth.js v5",
+      "Tailwind CSS v4",
+    ],
+    accent: "from-lime-400 to-emerald-500",
+    // demo: "",
+    repo: "https://github.com/MubashiraAli/HomeVault",
+  },
+  {
+    name: "FitTrack",
+    blurb:
+      "Cross-platform mobile fitness tracker with six tabs over a local-first store, so everything logged stays on the device.",
+    points: [
+      "Built a React Native app on Expo SDK 57 with Expo Router and NativeWind, shipping six tabs: dashboard, workouts, water, progress, goals and profile.",
+      "Implemented a local-first store persisted to AsyncStorage, so logged data survives an app restart and never leaves the phone.",
+      "Designed the dashboard around concentric daily-progress rings, a 7-day streak strip, quick-logging tiles and a weekly active-minutes chart, with generated app icons and EAS build profiles for Android and iOS.",
+    ],
+    stack: [
+      "React Native",
+      "Expo SDK 57",
+      "TypeScript",
+      "Expo Router",
+      "NativeWind",
+      "Reanimated",
+    ],
+    accent: "from-fuchsia-400 to-pink-500",
+    // demo: "",
+    repo: "https://github.com/MubashiraAli/FitTrack",
+  },
+  {
     name: "AI-Powered E-Commerce Application",
     blurb:
       "Full-stack e-commerce platform with a Gemini-powered AI shopping assistant for product recommendations and natural-language user queries.",
@@ -147,19 +202,6 @@ export const projects: Project[] = [
     accent: "from-indigo-400 to-sky-500",
     demo: "https://wanderlane-travel-mubashiraalis-projects.vercel.app",
     repo: "https://github.com/MubashiraAli/-wanderlane-travel",
-  },
-  {
-    name: "LearnHub",
-    blurb:
-      "E-learning platform supporting course browsing, student enrollment, and progress tracking, deployed on a cloud-based architecture.",
-    points: [
-      "Developed an e-learning platform supporting course browsing, student enrollment, and progress tracking using Next.js and PostgreSQL.",
-      "Deployed on Vercel with Neon PostgreSQL, using a cloud-based architecture for reliable application and database hosting.",
-    ],
-    stack: ["Next.js", "Vercel", "Neon PostgreSQL"],
-    accent: "from-violet-400 to-fuchsia-500",
-    demo: "https://learn-hub-umber-zeta.vercel.app",
-    repo: "https://github.com/MubashiraAli/learn-hub",
   },
   {
     name: "MelodicVerse",

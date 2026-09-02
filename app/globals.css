@@ -109,7 +109,9 @@
     color: var(--fg);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    /* `clip`, not `hidden`: hidden would make body a scroll container and
+       break `position: sticky` for the stacked project cards. */
+    overflow-x: clip;
     transition: background-color 0.4s ease, color 0.4s ease;
   }
 
@@ -568,6 +570,24 @@
   box-shadow: var(--card-shadow-hover);
 }
 
+/*
+ * Sticky stack: each card pins a little lower than the one before, so scrolling
+ * piles them up with a sliver of each earlier card still showing.
+ */
+.stack-card {
+  position: sticky;
+}
+
+/*
+ * Stacked cards must be opaque or the ones underneath show through. Painting
+ * the translucent surface over the page background keeps the same appearance
+ * while making the card solid.
+ */
+.card-solid {
+  background-color: var(--bg);
+  background-image: linear-gradient(180deg, var(--surface), var(--surface-2));
+}
+
 .card-tilt {
   transform: perspective(1000px) rotateX(var(--rx, 0deg))
     rotateY(var(--ry, 0deg));
@@ -779,6 +799,34 @@
   width: 7rem;
 }
 
+/* Children of .seq rise one after another once an ancestor gains .is-visible,
+   so a revealed block plays its contents in sequence rather than all at once. */
+.seq > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.is-visible .seq > * {
+  opacity: 1;
+  transform: none;
+}
+.is-visible .seq > *:nth-child(1) {
+  transition-delay: 80ms;
+}
+.is-visible .seq > *:nth-child(2) {
+  transition-delay: 170ms;
+}
+.is-visible .seq > *:nth-child(3) {
+  transition-delay: 260ms;
+}
+.is-visible .seq > *:nth-child(4) {
+  transition-delay: 350ms;
+}
+.is-visible .seq > *:nth-child(5) {
+  transition-delay: 440ms;
+}
+
 /* Section headings rise word by word as the block scrolls into view.
    Spacing comes from real space text nodes in the markup, not margins. */
 .word {
@@ -835,7 +883,8 @@
   .node-ping {
     opacity: 0;
   }
-  .word {
+  .word,
+  .seq > * {
     opacity: 1;
     transform: none;
     transition: none;
@@ -846,6 +895,10 @@
   .card-tilt,
   .card-tilt:hover {
     transform: none;
+  }
+  /* No scroll-driven pile-up; cards simply stack in normal flow. */
+  .stack-card {
+    position: static;
   }
   .heading-rule {
     width: 7rem;
