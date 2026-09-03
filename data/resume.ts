@@ -108,6 +108,27 @@ export const projects: Project[] = [
     repo: "https://github.com/MubashiraAli/learn-hub",
   },
   {
+    name: "StudyMate",
+    blurb:
+      "AI study assistant: chat with a tutor, upload PDFs and get answers cited back to their pages, then turn any material into quizzes, flashcards and summaries.",
+    points: [
+      "Built a Next.js 16 frontend against a Django 5.2 and DRF backend with JWT authentication, PostgreSQL and per-user data isolation.",
+      "Implemented the retrieval pipeline end to end — PDF validation by file signature, page-aware text extraction, overlapping ~1200-character chunks, Gemini embeddings using the asymmetric document and query task types, and cosine similarity scored in NumPy behind a relevance floor, so answers cite the pages they came from.",
+      "Generated quizzes, flashcards and summaries through Gemini response schemas, with server-side semantic validation rejecting malformed items, and ran ingestion on a background worker with status polling and a management command to recover stuck documents.",
+    ],
+    stack: [
+      "Next.js 16",
+      "Django 5.2",
+      "DRF",
+      "PostgreSQL",
+      "Gemini API",
+      "JWT",
+    ],
+    accent: "from-purple-400 to-blue-500",
+    // demo: "",
+    repo: "https://github.com/MubashiraAli/StudyMate",
+  },
+  {
     name: "HomeVault",
     blurb:
       "Private household record for property, appliances, warranties and maintenance — organised room by room, with strict per-user data isolation.",

@@ -24,7 +24,7 @@ export default function Projects() {
             <div
               key={project.name}
               className="stack-card pb-4"
-              style={{ top: `calc(6rem + ${(i * 1.1).toFixed(2)}rem)` }}
+              style={{ top: `calc(6rem + ${(i * 0.7).toFixed(2)}rem)` }}
             >
             <Reveal from="up">
               <SpotlightCard
