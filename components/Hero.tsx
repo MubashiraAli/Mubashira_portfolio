@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { profile } from "@/data/resume";
-import HeroVisual from "./HeroVisual";
 import SpotlightCard from "./SpotlightCard";
 import {
   ArrowIcon,
@@ -186,12 +186,23 @@ export default function Hero() {
             </div>
           </SpotlightCard>
 
-          {/* Animated orbit. No card chrome — it sits straight on the page. */}
-          <div
-            className="enter col-span-2 flex items-center justify-center py-6 md:col-span-6 lg:col-span-4 lg:py-0"
-            style={{ animationDelay: "240ms" }}
-          >
-            <HeroVisual />
+          {/*
+            Portrait, blended into the page. Deliberately no `.enter` animation
+            here: an animated transform would create a stacking context and
+            isolate the image's mix-blend-mode from the page background.
+          */}
+          <div className="col-span-2 md:col-span-6 lg:col-span-4">
+            <div className="group relative mx-auto aspect-square w-full max-w-sm lg:max-w-none">
+              <Image
+                src="/34726.jpg"
+                alt="Mubashira P"
+                width={1024}
+                height={1024}
+                priority
+                sizes="(min-width: 1024px) 34vw, (min-width: 640px) 24rem, 100vw"
+                className="portrait-blend h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+            </div>
           </div>
         </div>
 
